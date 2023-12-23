@@ -1,7 +1,6 @@
 import type { AppProps } from "next/app";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { AppProvider } from "@/data/context/app-context";
 import { AuthProvider } from "@/data/context/auth-context";
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -13,9 +12,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       disableTransitionOnChange
     >
       <AuthProvider>
-        <AppProvider>
-          <Component {...pageProps} />
-        </AppProvider>
+        <Component {...pageProps} />
       </AuthProvider>
     </ThemeProvider>
   );

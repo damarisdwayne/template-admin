@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface SideMenuItemProps {
   label: string;
@@ -9,6 +10,9 @@ interface SideMenuItemProps {
 }
 
 export const SideMenuItem = (props: SideMenuItemProps) => {
+  const router = useRouter();
+  const isActive = props.url ? router.pathname === props.url : false;
+
   const renderLink = () => {
     return (
       <span className="flex flex-col justify-center items-center h-20 w-20">
@@ -20,7 +24,11 @@ export const SideMenuItem = (props: SideMenuItemProps) => {
   return (
     <li
       onClick={props.onClick}
-      className={`hover:bg-primary/5 transition-all duration-200 cursor-pointer  ${props.className}`}
+      className={` ${
+        isActive ? "bg-primary/5" : "hover:bg-primary/5"
+      } hover:bg-primary/5 transition-all duration-200 cursor-pointer  ${
+        props.className
+      }`}
     >
       {props.url ? <Link href={props.url}>{renderLink()}</Link> : renderLink()}
     </li>

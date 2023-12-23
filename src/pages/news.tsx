@@ -1,6 +1,6 @@
 import { Layout } from "@/components/template/layout";
 
-export default function News() {
+const News = () => {
   return (
     <Layout
       title="Notificações"
@@ -9,4 +9,5 @@ export default function News() {
       <h1>Conteúdo</h1>
     </Layout>
   );
-}
+};
+export default News;

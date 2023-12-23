@@ -1,8 +1,10 @@
+import { useAuthData } from "@/data/hook/use-auth-data";
 import { SettingsIcon, BellIcon, HomeICon, LogoutIcon } from "../icons";
 import { Brand } from "./brand";
 import { SideMenuItem } from "./side-menu-item";
 
 export const SideMenu = () => {
+  const { logout } = useAuthData();
   return (
     <aside className="flex flex-col bg-accent">
       <div className="flex flex-col items-center justify-center h-20 w-20 bg-gradient-to-r from-indigo-500 to-purple-800">
@@ -16,7 +18,7 @@ export const SideMenu = () => {
       <ul>
         <SideMenuItem
           label="Sair"
-          onClick={() => console.log("sair")}
+          onClick={logout}
           className="text-destructive hover:bg-destructive hover:text-white"
           icon={LogoutIcon}
         />

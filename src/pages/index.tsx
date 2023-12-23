@@ -1,9 +1,10 @@
 import { Layout } from "@/components/template/layout";
 
-export default function Home() {
+const Home = () => {
   return (
     <Layout title="Página inicial" subTitle="Conteúdo da página inicial">
       <h1>Conteúdo</h1>
     </Layout>
   );
-}
+};
+export default Home;

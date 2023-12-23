@@ -1,10 +1,10 @@
 import type { AppProps } from "next/app";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ModeToggle } from "@/components/mode-toggle";
 import { AppProvider } from "@/data/context/app-context";
+import { AuthProvider } from "@/data/context/auth-context";
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeProvider
       attribute="class"
@@ -12,10 +12,13 @@ export default function App({ Component, pageProps }: AppProps) {
       enableSystem
       disableTransitionOnChange
     >
-      <AppProvider>
-        <ModeToggle />
-        <Component {...pageProps} />
-      </AppProvider>
+      <AuthProvider>
+        <AppProvider>
+          <Component {...pageProps} />
+        </AppProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
-}
+};
+
+export default App;

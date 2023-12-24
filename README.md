@@ -20,7 +20,7 @@ The `template-admin` is a foundational template project developed to serve as a 
 1. Clone the repository:
 
 ```bash
-  git clone https://github.com/your-username/template-admin.git
+  git clone git@github.com:damarisdwayne/template-admin.git
 ```
 
 2. Install dependencies:
